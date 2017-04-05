@@ -1,0 +1,5 @@
+@media (min-width: 400px) {
+.login-container{
+    max-width:600px;
+    padding: 50px;
+}}

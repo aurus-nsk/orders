@@ -2,7 +2,10 @@ package com.orders.domain;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -32,12 +35,17 @@ public class Person {
 
     @NotNull
     private String password;
-
+    
     @Temporal(TemporalType.TIMESTAMP)
     @DateTimeFormat(style = "M-")
     private Date dateCreate;
 
-    protected Person() {
+    @NotNull
+    @Column(name = "role")
+    @Enumerated(EnumType.STRING)
+    private Role role;
+    
+    public Person() {
 	}
 
 	public Person(String name, String middleName, String surname, String username, String password, Date dateCreate) {
@@ -49,6 +57,14 @@ public class Person {
 		this.dateCreate = dateCreate;
 	}
 	
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -104,7 +120,7 @@ public class Person {
 	public void setDateCreate(Date dateCreate) {
 		this.dateCreate = dateCreate;
 	}
-
+	
 	@Override
 	public String toString() {
 		return "Person [id=" + id + ", name=" + name + ", middleName=" + middleName + ", surname=" + surname

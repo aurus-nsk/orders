@@ -10,6 +10,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EntityScan("com.orders.domain")
 @EnableJpaRepositories("com.orders.repository")
 @ComponentScan("com.orders.web")
+@ComponentScan("com.orders.service")
 @SpringBootApplication
 public class Application {
     

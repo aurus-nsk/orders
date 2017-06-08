@@ -10,4 +10,5 @@ import com.orders.domain.Person;
 @Repository
 public interface OrderRepository extends CrudRepository<Order, Long>{
 	List<Order> findByPerson(Person person);
+	List<Order> findByPersonId(Integer personId);
 }

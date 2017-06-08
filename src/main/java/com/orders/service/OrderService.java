@@ -14,7 +14,15 @@ public class OrderService {
 	@Autowired
     private OrderRepository orderRepository;
 	
-    List<Order> findByPerson(Person person) {
+    public List<Order> findByPerson(Person person) {
     	return orderRepository.findByPerson(person);
     }
+
+	public List<Order> findByPersonId(Integer personId) {
+		return orderRepository.findByPersonId(personId);
+	}
+	
+	public void save(Order order) {
+		orderRepository.save(order);
+	}
 }

@@ -1,5 +1,7 @@
 package com.orders.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -18,12 +20,15 @@ public class PersonServiceImpl implements PersonService {
     public void save(Person person) {
     	System.out.println(person);
     	person.setPassword(bCryptPasswordEncoder.encode(person.getPassword()));
-    	//person.setRole(person.getRole());
     	personRepository.save(person);
     }
 
     @Override
     public Person findByUsername(String username) {
         return personRepository.findByUsername(username);
+    }
+    
+    public List<Person> findAll() {
+    	return personRepository.findAll();
     }
 }

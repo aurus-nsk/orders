@@ -83,7 +83,6 @@ public class Order {
 			BigDecimal deliveryUsaDollars, BigDecimal totalDollars, BigDecimal currency, BigDecimal totalRubles,
 			Integer weight, BigDecimal priceOfKgDollars, BigDecimal deliveryRussiaDollars, BigDecimal currencyDelivery,
 			BigDecimal deliveryRussiaRubles, BigDecimal totalSumRubles) {
-		super();
 		this.person = person;
 		this.shopName = shopName;
 		this.dateCreate = dateCreate;
@@ -105,7 +104,7 @@ public class Order {
 		this.totalSumRubles = totalSumRubles;
 	}
 
-	protected Order() {
+	public Order() {
 	}
 
 	public Person getPerson() {
@@ -266,6 +265,18 @@ public class Order {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	@Override
+	public String toString() {
+		return "Order [id=" + id + ", person=" + person + ", shopName=" + shopName + ", dateCreate=" + dateCreate
+				+ ", productName=" + productName + ", colour=" + colour + ", sizeName=" + sizeName
+				+ ", priceOriginDollars=" + priceOriginDollars + ", priceOrgSaleDollars=" + priceOrgSaleDollars
+				+ ", taxDollars=" + taxDollars + ", deliveryUsaDollars=" + deliveryUsaDollars + ", totalDollars="
+				+ totalDollars + ", currency=" + currency + ", totalRubles=" + totalRubles + ", weight=" + weight
+				+ ", priceOfKgDollars=" + priceOfKgDollars + ", deliveryRussiaDollars=" + deliveryRussiaDollars
+				+ ", currencyDelivery=" + currencyDelivery + ", deliveryRussiaRubles=" + deliveryRussiaRubles
+				+ ", totalSumRubles=" + totalSumRubles + "]";
 	}
 	
 }

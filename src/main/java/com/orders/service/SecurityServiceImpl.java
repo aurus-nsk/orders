@@ -37,8 +37,8 @@ public class SecurityServiceImpl implements SecurityService {
 		try{
 			authenticationManager.authenticate(usernamePasswordAuthenticationToken);}
 		catch(Exception e) {
-			System.out.println("always bad credentials");
-			e.printStackTrace();
+			//TODO: always bad credentials; hash password and plain password doesn't equal
+			logger.debug(e.getMessage());
 		}
 
 		if (usernamePasswordAuthenticationToken.isAuthenticated()) {

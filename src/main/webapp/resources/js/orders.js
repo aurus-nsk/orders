@@ -2,8 +2,8 @@
 	
 });
 */
-/*
- * set active class at the navbar, BUT doesn't work cause we reload pages completely
+
+/* set active class at the navbar, BUT doesn't work cause we reload pages completely
 $(".nav a").on("click", function(){
 	console.log('active');
    $(".nav").find(".active").removeClass("active");
@@ -13,58 +13,54 @@ $(".nav a").on("click", function(){
 	function loadFields() {
 		console.log('loadFields');
 		
-		window.addEventListener('load',function(){
+		window.addEventListener('load', function(){
 			console.log('window.addEventListener');
 			//initialize
-			document.getElementById("_shopName_id").addEventListener('change', calculate, false);
-			document.getElementById("_productName_id").addEventListener('change', calculate, false);
-			document.getElementById("_colour_id").addEventListener('change', calculate, false);
-			document.getElementById("_sizeName_id").addEventListener('change', calculate, false);
-			document.getElementById("_quantity_id").addEventListener('change', calculate, false);
-			document.getElementById("_priceOrigin_id").addEventListener('change', calculate, false);
-			document.getElementById("_priceSaleOrg_id").addEventListener('change', calculate, false);
-			document.getElementById("_taxDollars_id").addEventListener('change', calculate, false);
-			document.getElementById("_deliveryUSA_id").addEventListener('change', calculate, false);
-			document.getElementById("_totalDollars_id").addEventListener('change', calculate, false);
-			document.getElementById("_totalRubles_id").addEventListener('change', calculate, false);
-			document.getElementById("_weight_id").addEventListener('change', calculate, false);
-			document.getElementById("_deliveryRussiaDollars_id").addEventListener('change', calculate, false);
-			document.getElementById("_deliveryRussiaRubles_id").addEventListener('change', calculate, false);
-			document.getElementById("_totalSumDollars_id").addEventListener('change', calculate, false);
-			document.getElementById("_totalSumRubles_id").addEventListener('change', calculate, false);
-			//constants
-			document.getElementById("_currency_id").addEventListener('change', calculate, false);
-			document.getElementById("_currencyDelivery_id").addEventListener('change', calculate, false);
-			document.getElementById("_priceOfKg_id").addEventListener('change', calculate, false);
+			document.getElementById("priceOriginDollars_id").addEventListener('change', calculate, false);
+			document.getElementById("priceOrgSaleDollars_id").addEventListener('change', calculate, false);
+			document.getElementById("taxDollars_id").addEventListener('change', calculate, false);
+			document.getElementById("deliveryUsaDollars_id").addEventListener('change', calculate, false);
+			document.getElementById("totalDollars_id").addEventListener('change', calculate, false);
+			document.getElementById("totalRubles_id").addEventListener('change', calculate, false);
+			document.getElementById("weight_id").addEventListener('change', calculate, false);
+			document.getElementById("deliveryRussiaDollars_id").addEventListener('change', calculate, false);
+			document.getElementById("deliveryRussiaRubles_id").addEventListener('change', calculate, false);
+			document.getElementById("currency_id").addEventListener('change', calculate, false);
+			document.getElementById("currencyDelivery_id").addEventListener('change', calculate, false);
+			document.getElementById("priceOfKgDollars_id").addEventListener('change', calculate, false);
 		});
 	}
 	
 	function calculate() {
-		
-		var quantity = Number(document.getElementById("_quantity_id").value);
-		var priceOrigin = Number(document.getElementById("_priceOrigin_id").value);
-		var priceSaleOrg = Number(document.getElementById("_priceSaleOrg_id").value);
-		var taxDollars = Number(document.getElementById("_taxDollars_id").value);
-		var deliveryUSA = Number(document.getElementById("_deliveryUSA_id").value);
-		
-		var totalDollars = Number(document.getElementById("_totalDollars_id").value);
-		var totalRubles = Number(document.getElementById("_totalRubles_id").value);
-		var weight = Number(document.getElementById("_weight_id").value);
-		var deliveryRussiaDollars = Number(document.getElementById("_deliveryRussiaDollars_id").value);
-		var deliveryRussiaRubles = Number(document.getElementById("_deliveryRussiaRubles_id").value);
-		var totalSumDollars = Number(document.getElementById("_totalSumDollars_id").value);
-		var totalSumRubles = Number(document.getElementById("_totalSumRubles_id").value);
-		
-		//constants 
-		var currencyPurchase = Number(document.getElementById("_currency_id").value);
-		var currencyDelivery = Number(document.getElementById("_currencyDelivery_id").value);
-		var priceOfKg = Number(document.getElementById("_priceOfKg_id").value);
+		//Цена сайта, дол
+		var priceOrigin = Number(document.getElementById("priceOriginDollars_id").value);
+		//Цена со скидкой и орг%, дол
+		var priceSaleAndOrg = Number(document.getElementById("priceOrgSaleDollars_id").value);
+		//Налог, дол
+		var taxDollars = Number(document.getElementById("taxDollars_id").value);
+		//Доставка по США, дол
+		var deliveryUSA = Number(document.getElementById("deliveryUsaDollars_id").value);
+		//Итого, дол
+		var totalDollars = Number(document.getElementById("totalDollars_id").value);
+		//Курс, дол.
+		var currencyPurchase = Number(document.getElementById("currency_id").value);
+		//Цена в руб.
+		var totalRubles = Number(document.getElementById("totalRubles_id").value);
+		//Вес, кг		
+		var weight = Number(document.getElementById("weight_id").value);
+		//Дол/1 кг веса
+		var priceOfKg = Number(document.getElementById("priceOfKgDollars_id").value);
+		//Доставка РФ, дол
+		var deliveryRussiaDollars = Number(document.getElementById("deliveryRussiaDollars_id").value);
+		//Курс доставки
+		var currencyDelivery = Number(document.getElementById("currencyDelivery_id").value);
+		//Доставка РФ, руб.
+		var deliveryRussiaRubles = Number(document.getElementById("deliveryRussiaRubles_id").value);
 		
 		console.log('calculate');
-		document.getElementById("_totalDollars_id").value = (Number(quantity) * Number(priceSaleOrg)) + Number(taxDollars) + Number(deliveryUSA);
-		document.getElementById("_totalRubles_id").value = Number(totalDollars) * Number(currencyPurchase);
-		document.getElementById("_deliveryRussiaDollars_id").value = Number(weight) * Number(priceOfKg);
-		document.getElementById("_deliveryRussiaRubles_id").value = Number(deliveryRussiaDollars) * Number(currencyDelivery);
-		document.getElementById("_totalSumDollars_id").value =  Number(totalDollars) + Number(deliveryRussiaDollars);
-		document.getElementById("_totalSumRubles_id").value = Number(totalRubles) + Number(deliveryRussiaRubles);
+		document.getElementById("totalDollars_id").value = Number(priceSaleAndOrg) + Number(taxDollars) + Number(deliveryUSA);
+		document.getElementById("totalRubles_id").value = Number(totalDollars) * Number(currencyPurchase);
+		document.getElementById("deliveryRussiaDollars_id").value = Number(weight) * Number(priceOfKg);
+		document.getElementById("deliveryRussiaRubles_id").value = Number(deliveryRussiaDollars) * Number(currencyDelivery);
+		document.getElementById("totalSumRubles_id").value = Number(totalRubles) + Number(deliveryRussiaRubles);
 	}

@@ -38,7 +38,7 @@
 				<td>Доставка РФ, дол</td>
 				<td>Курс доставки</td>
 				<td>Доставка РФ, руб.</td>
-				<td>Оплата</td>
+				<td>Стоимость</td>
 			</tr>
 			<form:form method="POST" modelAttribute="orderForm" action="/orders/add">
 			<tr>
@@ -150,10 +150,12 @@
 		
 		<form:errors path="person"></form:errors>
 		<form:errors path="shopName"></form:errors>
-		
-		
 	</div>
-	
+    
 	<jsp:include page="/WEB-INF/footer.jsp"/>
+	
+	<SCRIPT type="text/javascript">
+    	loadFields();
+    </SCRIPT>
 </body>
 </html>

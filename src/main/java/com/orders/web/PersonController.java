@@ -48,13 +48,15 @@ public class PersonController {
             return "registration";
         }
          */
+    	if(personForm.getUsername().equals("admin")) {
+    		personForm.setRole(Role.ROLE_ADMIN);
+    	} else {
+    		personForm.setRole(Role.ROLE_USER);
+    	}
     	
-    	personForm.setRole(Role.USER);
     	personForm.setDateCreate(new Date());
         personService.save(personForm);
-        System.out.println("saved");
         securityService.autologin(personForm.getUsername(), personForm.getPassword());
-        System.out.println("auto login");
         
         return "/index";
     }

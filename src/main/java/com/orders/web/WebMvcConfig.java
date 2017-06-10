@@ -19,20 +19,6 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 		resolver.setSuffix(".jsp");
 		return resolver;
 	}
-	/*
-	@Bean
-	  public ViewResolver viewResolver() {
-	    ClassLoaderTemplateResolver templateResolver = new ClassLoaderTemplateResolver();
-	    templateResolver.setTemplateMode("HTML5");
-	    templateResolver.setPrefix("/WEB-INF/");
-	    templateResolver.setSuffix(".html");
-	    SpringTemplateEngine engine = new SpringTemplateEngine();
-	    engine.setTemplateResolver(templateResolver);
-
-	    ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
-	    viewResolver.setTemplateEngine(engine);
-	    return viewResolver;
-	}*/
 	
 	@Override
     public void addViewControllers(ViewControllerRegistry registry) {

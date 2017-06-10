@@ -55,6 +55,7 @@ public class OrderController {
 	@RequestMapping(value = "/orders/add", method = RequestMethod.POST)
     public String create(@ModelAttribute("orderForm") Order orderForm, BindingResult bindingResult, Model model) {
 		orderService.save(orderForm);
-        return "order/orders";
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        return "redirect:/orders";
     }
 }

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.orders.domain.Person;
 import com.orders.domain.Role;
@@ -56,18 +57,19 @@ public class PersonController {
     	
     	personForm.setDateCreate(new Date());
         personService.save(personForm);
-        securityService.autologin(personForm.getUsername(), personForm.getPassword());
+        //TODO:it does not work appropriately 
+        //securityService.autologin(personForm.getUsername(), personForm.getPassword());
         
         return "/index";
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String login(Model model, String error, String logout) {
+    public String login(Model model, String error, @RequestParam(value = "logout", required = false) String logout) {
         if (error != null)
-            model.addAttribute("error", "Your username and password is invalid.");
+            model.addAttribute("error", "Имя пользователя/пароль не вырны.");
 
         if (logout != null)
-            model.addAttribute("message", "You have been logged out successfully.");
+            model.addAttribute("message", "Вы вышли успешно");
 
         return "login";
     }

@@ -3,16 +3,26 @@
 	<a class="navbar-brand" href="#">Krasota</a>
     <div class="container">
         <ul class="nav navbar-nav flex-row float-right">
-            <li class="nav-item"><a class="nav-link" href="/index">Новости</a></li>
-            <li class="nav-item"><a class="nav-link" href="/orders">Заказы</a></li>
-            <li class="nav-item"><a class="nav-link" href="/info">Личная информация</a></li>
-            <li class="nav-item"><a class="nav-link" href="/login">Войти</a></li>
-            <li class="nav-item"><a class="nav-link" href="/registration">Регистрация</a></li>
+            <li class="nav-item"><a class="nav-link active" href="/index">Новости</a></li>
+            <li class="nav-item"><a class="nav-link active" href="/orders">Заказы</a></li>
+            <li class="nav-item"><a class="nav-link active" href="/info">Личная информация</a></li>
             
             <security:authorize access="hasRole('ROLE_ADMIN')">
-				<li class="nav-item"><a class="nav-link" href="/orders/add">Новый заказ</a></li>
+				<li class="nav-item"><a class="nav-link active" active href="/orders/add">Новый заказ</a></li>
+			</security:authorize>
+			
+			<security:authorize access="isAnonymous()">
+				<li class="nav-item pull-xs-right"><a class="nav-link active" href="/login">Войти</a></li>
+				<li class="nav-item pull-xs-right"><a class="nav-link active" href="/registration">Регистрация</a></li>
+			</security:authorize>
+			
+			<security:authorize access="isAuthenticated()">
+				<li class="nav-item pull-xs-right"><a class="nav-link active" href="javascript:document.getElementById('logout').submit()">Выйти</a></li>
 			</security:authorize>
         </ul>
     </div>
 </nav>
+<form id="logout" action="/logout" method="post" >
+	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+</form>
 </br>

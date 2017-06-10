@@ -2,7 +2,14 @@
 	
 });
 */
-		
+/*
+ * set active class at the navbar, BUT doesn't work cause we reload pages completely
+$(".nav a").on("click", function(){
+	console.log('active');
+   $(".nav").find(".active").removeClass("active");
+   $(this).parent().addClass("active");
+});
+*/	
 	function loadFields() {
 		console.log('loadFields');
 		

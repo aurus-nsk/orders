@@ -40,7 +40,7 @@
 				<td>Доставка РФ, руб.</td>
 				<td>Стоимость</td>
 			</tr>
-			<form:form method="POST" modelAttribute="orderForm" action="/orders/add">
+			<form:form id="order_add_form" method="POST" modelAttribute="orderForm" action="/orders/add">
 			<tr>
                 <td style="width: 55px;"> 
                 <spring:bind path="person">

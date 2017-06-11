@@ -12,8 +12,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.orders.domain.Order;
 import com.orders.domain.Person;
@@ -52,10 +54,40 @@ public class OrderController {
         return "order/add";
     }
 	
+	//classic form
 	@RequestMapping(value = "/orders/add", method = RequestMethod.POST)
     public String create(@ModelAttribute("orderForm") Order orderForm, BindingResult bindingResult, Model model) {
 		orderService.save(orderForm);
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        return "redirect:/orders";
+		return "redirect:/orders";
+	}
+
+	//form
+	@RequestMapping(value = "/orders/addByAjax", method = RequestMethod.GET)
+	public String addByAjaxForm(Model model) {
+		List<Person> persons = personService.findAll();
+		model.addAttribute("persons", persons);
+		return "order/addByAjax";
+	}
+
+	//json form
+	@RequestMapping(value = "/orders/addByAjax", method = RequestMethod.POST)
+	public @ResponseBody Order addByAjax(@RequestBody final Order orderForm, BindingResult bindingResult, Model model) {
+		orderService.save(orderForm);
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+	    String username = auth.getName();
+	    Person person = personService.findByUsername(username);
+	    List<Order> orders = orderService.findByPerson(person);
+        return orders.get(0);
+    }
+	
+	//return json of Order
+	@RequestMapping(value = "/order/id", method = RequestMethod.GET)
+    public @ResponseBody Order get() {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+	    String username = auth.getName();
+	    Person person = personService.findByUsername(username);
+	    List<Order> orders = orderService.findByPerson(person);
+        return orders.get(0);
     }
 }

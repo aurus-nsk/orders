@@ -150,7 +150,7 @@
         		
     			var order = {};
     			//order["id"] = $("#id").val();
-    			order["person"] = $("#person_id").val();
+    			//order["person"] = $("#person_id").val();
     			order["shopName"] = $("#shopName_id").val();
     			order["dateCreate"] = $("#dateCreate_id").val();
     			order["productName"] = $("#productName_id").val();

@@ -73,21 +73,22 @@ public class OrderController {
 	//json form
 	@RequestMapping(value = "/orders/addByAjax", method = RequestMethod.POST)
 	public @ResponseBody Order addByAjax(@RequestBody final Order orderForm, BindingResult bindingResult, Model model) {
-		orderService.save(orderForm);
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 	    String username = auth.getName();
 	    Person person = personService.findByUsername(username);
+	    orderForm.setPerson(person);
+	    orderService.save(orderForm);
 	    List<Order> orders = orderService.findByPerson(person);
         return orders.get(0);
     }
 	
 	//return json of Order
-	@RequestMapping(value = "/order/id", method = RequestMethod.GET)
-    public @ResponseBody Order get() {
+	/*@RequestMapping(value = "/order/{id}", method = RequestMethod.GET)
+    public @ResponseBody Order get(@PathVariable Long id) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 	    String username = auth.getName();
 	    Person person = personService.findByUsername(username);
 	    List<Order> orders = orderService.findByPerson(person);
         return orders.get(0);
-    }
+    }*/
 }

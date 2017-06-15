@@ -8,6 +8,7 @@
 <html>
         
 <head>
+	
 	<jsp:include page="/WEB-INF/header.jsp">
     	<jsp:param name="title" value="Заказы"/>
 	</jsp:include>
@@ -40,122 +41,168 @@
 				<td>Доставка РФ, руб.</td>
 				<td>Стоимость</td>
 			</tr>
-			<form:form id="order_add_form" method="POST" modelAttribute="orderForm" action="/orders/add">
+			<form id="order_add_form" method="POST" modelAttribute="orderForm">
 			<tr>
                 <td style="width: 55px;"> 
-                <spring:bind path="person">
-	                <form:select id="person_id" type="text" path="person" class="form-control inputfield">
+	                <select id="person_id" type="text" path="person" class="form-control inputfield">
 	                	<c:forEach items="${persons}" var="person">
 							<option value="${person.id}">${person.username}</option>
 						</c:forEach>
-	                </form:select>
-                </spring:bind>
+	                </select>
 				</td>
 				<td>    
-					<spring:bind path="shopName">
-	                	<form:input id="shopName_id" type="text" path="shopName" class="form-control inputfield"></form:input>
-                	</spring:bind>
+	            	<input id="shopName_id" type="text" path="shopName" class="form-control inputfield"></input>
 				</td>
 				<td>    
-					<spring:bind path="dateCreate">
-	                	<form:input id="dateCreate_id" type="text" path="dateCreate" class="form-control inputfield"></form:input>
-                	</spring:bind>
+					<input id="dateCreate_id" type="text" path="dateCreate" class="form-control inputfield"></input>
 				</td>
 				<td>    
-					<spring:bind path="productName">
-	                	<form:input id="productName_id" type="text" path="productName" class="form-control inputfield"></form:input>
-                	</spring:bind>
+	                <input id="productName_id" type="text" path="productName" class="form-control inputfield"></input>
 				</td>
 				<td>    
-					<spring:bind path="colour">
-	                	<form:input id="colour_id" type="text" path="colour" class="form-control inputfield"></form:input>
-                	</spring:bind>
+	                <input id="colour_id" type="text" path="colour" class="form-control inputfield"></input>
 				</td>
 				<td>    
-					<spring:bind path="sizeName">
-	                	<form:input id="sizeName_id" type="text" path="sizeName" class="form-control inputfield"></form:input>
-                	</spring:bind>
+	                <input id="sizeName_id" type="text" path="sizeName" class="form-control inputfield"></input>
 				</td>
 				<td>    
-					<spring:bind path="priceOriginDollars">
-	                	<form:input id="priceOriginDollars_id" type="text" path="priceOriginDollars" class="form-control inputfield"></form:input>
-                	</spring:bind>
+	                <input id="priceOriginDollars_id" type="text" path="priceOriginDollars" class="form-control inputfield"></input>
 				</td>
 				<td>    
-					<spring:bind path="priceOrgSaleDollars">
-	                	<form:input id="priceOrgSaleDollars_id" type="text" path="priceOrgSaleDollars" class="form-control inputfield"></form:input>
-                	</spring:bind>
+	                <input id="priceOrgSaleDollars_id" type="text" path="priceOrgSaleDollars" class="form-control inputfield"></input>
 				</td>
 				<td>    
-					<spring:bind path="taxDollars">
-	                	<form:input id="taxDollars_id" type="text" path="taxDollars" class="form-control inputfield"></form:input>
-                	</spring:bind>
+	                <input id="taxDollars_id" type="text" path="taxDollars" class="form-control inputfield"></input>
 				</td>
 				<td>    
-					<spring:bind path="deliveryUsaDollars">
-	                	<form:input id="deliveryUsaDollars_id" type="text" path="deliveryUsaDollars" class="form-control inputfield"></form:input>
-                	</spring:bind>
+	                <input id="deliveryUsaDollars_id" type="text" path="deliveryUsaDollars" class="form-control inputfield"></input>
 				</td>
 				<td>    
-					<spring:bind path="totalDollars">
-	                	<form:input id="totalDollars_id" type="text" path="totalDollars" class="form-control inputfield"></form:input>
-                	</spring:bind>
+	                <input id="totalDollars_id" type="text" path="totalDollars" class="form-control inputfield"></input>
 				</td>
 				<td>    
-					<spring:bind path="currency">
-	                	<form:input id="currency_id" type="text" path="currency" class="form-control inputfield"></form:input>
-                	</spring:bind>
+	                <input id="currency_id" type="text" path="currency" class="form-control inputfield"></input>
 				</td>
 				<td>    
-					<spring:bind path="totalRubles">
-	                	<form:input id="totalRubles_id" type="text" path="totalRubles" class="form-control inputfield"></form:input>
-                	</spring:bind>
+	                <input id="totalRubles_id" type="text" path="totalRubles" class="form-control inputfield"></input>
 				</td>
 				<td>    
-					<spring:bind path="weight">
-	                	<form:input id="weight_id" type="text" path="weight" class="form-control inputfield"></form:input>
-                	</spring:bind>
+	                <input id="weight_id" type="text" path="weight" class="form-control inputfield"></input>
 				</td>
 				<td>    
-					<spring:bind path="priceOfKgDollars">
-	                	<form:input id="priceOfKgDollars_id" type="text" path="priceOfKgDollars" class="form-control inputfield"></form:input>
-                	</spring:bind>
+	                <input id="priceOfKgDollars_id" type="text" path="priceOfKgDollars" class="form-control inputfield"></input>
 				</td>
 				<td>    
-					<spring:bind path="deliveryRussiaDollars">
-	                	<form:input id="deliveryRussiaDollars_id" type="text" path="deliveryRussiaDollars" class="form-control inputfield"></form:input>
-                	</spring:bind>
+	                <input id="deliveryRussiaDollars_id" type="text" path="deliveryRussiaDollars" class="form-control inputfield"></input>
 				</td>
 				<td>    
-					<spring:bind path="currencyDelivery">
-	                	<form:input id="currencyDelivery_id" type="text" path="currencyDelivery" class="form-control inputfield"></form:input>
-                	</spring:bind>
+	                <input id="currencyDelivery_id" type="text" path="currencyDelivery" class="form-control inputfield"></input>
 				</td>
 				<td>    
-					<spring:bind path="deliveryRussiaRubles">
-	                	<form:input id="deliveryRussiaRubles_id" type="text" path="deliveryRussiaRubles" class="form-control inputfield"></form:input>
-                	</spring:bind>
+	                <input id="deliveryRussiaRubles_id" type="text" path="deliveryRussiaRubles" class="form-control inputfield"></input>
 				</td>
 				<td>    
-					<spring:bind path="totalSumRubles">
-	                	<form:input id="totalSumRubles_id" type="text" path="totalSumRubles" class="form-control inputfield"></form:input>
-                	</spring:bind>
+	                <input id="totalSumRubles_id" type="text" path="totalSumRubles" class="form-control inputfield"></input>
 				</td>
 			</tr>
 			<div class="text-right">
 				<button type="submit" class="btn btn-outline-primary">Добавить</button>
 			</div>
-			</form:form>
+			</form>
 		</table>
 		
-		<form:errors path="person"></form:errors>
-		<form:errors path="shopName"></form:errors>
+		<div id="table"></div>
 	</div>
     
 	<jsp:include page="/WEB-INF/footer.jsp"/>
 	
 	<SCRIPT type="text/javascript">
     	loadFields();
+
+    	$( document ).ready(function() {
+    		$("#order_add_form").submit(function(event) {
+    			// Prevent the form from submitting via the browser.
+    			event.preventDefault();
+    			submitViaAjax();
+    		});
+
+    		function submitViaAjax() {
+				/* example of JSON
+    			"id":1,
+    			"person":{"id":1,"name":"8","middleName":"76","surname":"6","username":"admin","password":"$2a$10$ZuKWysPbT50EGG5GHI091ObJhUUm2Md8et0DDw9xr8jYdtHqapOZO","dateCreate":1497182293000,"role":"ROLE_ADMIN"},
+    			"shopName":"dfg",
+    			"dateCreate":1513011600000,
+    			"productName":"wer",
+    			"colour":"4",
+    			"sizeName":"5",
+    			"priceOriginDollars":6.00,
+    			"priceOrgSaleDollars":7.00,
+    			"taxDollars":2.00,
+    			"deliveryUsaDollars":9.00,
+    			"totalDollars":18.00,
+    			"currency":65.00,
+    			"totalRubles":1170.00,
+    			"weight":1,
+    			"priceOfKgDollars":8.00,
+    			"deliveryRussiaDollars":8.00,
+    			"currencyDelivery":54.00,
+    			"deliveryRussiaRubles":432.00,
+    			"totalSumRubles":1506.00
+        		*/
+        		
+    			var order = {};
+    			
+    			var person = {};
+    			person["id"]=$("#person_id").val();
+    			person["usename"]=$("#person_id").find('option:selected').text();
+    			
+    			order["person"] = person; 
+    			order["shopName"] = $("#shopName_id").val();
+    			order["dateCreate"] = $("#dateCreate_id").val();
+    			order["productName"] = $("#productName_id").val();
+    			order["colour"] = $("#colour_id").val();
+    			order["sizeName"] = $("#sizeName_id").val();
+    			order["priceOriginDollars"] = $("#priceOriginDollars_id").val();
+    			order["priceOrgSaleDollars"] = $("#priceOrgSaleDollars_id").val();
+    			order["taxDollars"] = $("#taxDollars_id").val();
+    			order["deliveryUsaDollars"] = $("#deliveryUsaDollars_id").val();
+    			order["totalDollars"] = $("#totalDollars_id").val();
+    			order["currency"] = $("#currency_id").val();
+    			order["totalRubles"] = $("#totalRubles_id").val();
+    			order["weight"] = $("#weight_id").val();
+    			order["priceOfKgDollars"] = $("#priceOfKgDollars_id").val();
+    			order["deliveryRussiaDollars"] = $("#deliveryRussiaDollars_id").val();
+    			order["currencyDelivery"] = $("#currencyDelivery_id").val();
+    			order["deliveryRussiaRubles"] = $("#deliveryRussiaRubles_id").val();
+    			order["totalSumRubles"] = $("#totalSumRubles_id").val();
+
+    			var token = $("meta[name='_csrf']").attr("content");
+    			var header = $("meta[name='_csrf_header']").attr("content");
+    			
+    			$.ajax({
+    				type : "POST",
+    				contentType : "application/json;charset=UTF-8",
+    				cache: false,
+    				//processData: false,
+    				url : "/orders/add",
+    				data : JSON.stringify(order),
+    				//dataType : 'json',
+    				//timeout : 100000,
+    				beforeSend: function(xhr) {
+            		// it is the authorization
+            		xhr.setRequestHeader(header, token);
+        			},
+    			    success: function(data) {
+    			        //console.log(data);
+    			    	$('#table').html(data);
+    			    },
+    			    error: function (xhr, ajaxOptions, thrownError) {
+    			        //console.log(xhr.status + ": " + thrownError);
+    			    	$('#table').html(xhr.status + ": " + thrownError + " " + ajaxOptions);
+    			    }
+    			});
+    		}
+    	});
     </SCRIPT>
 </body>
 </html>

@@ -10,4 +10,5 @@ import com.orders.domain.Person;
 public interface PersonRepository extends CrudRepository<Person, Long> {
 	Person findByUsername(String username);
 	List<Person> findAll();
+	Person findOne(Long id);
 }

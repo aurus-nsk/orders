@@ -1,8 +1,8 @@
-﻿1. DatePicker at the orders/add form
-2. Ajax submit the orders/add form
+﻿0. Ajax submit the orders/add form with RIGHT person, but nw is always with ADMIN - incorect!
+1. WAR package and Deploy it on rhcloud
+
+1. DatePicker at the orders/add form with time
 3. Settings for "currency"
-4. WAR package
-5. Deploy on rhcloud
 6. Предустмотреть проставку Оплаты
 7. Change ',' to '.' at the orders/add form
 8. Highlights fields that calculated

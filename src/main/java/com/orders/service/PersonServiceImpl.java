@@ -28,6 +28,11 @@ public class PersonServiceImpl implements PersonService {
         return personRepository.findByUsername(username);
     }
     
+    @Override
+    public Person findOne(Long id) {
+        return personRepository.findOne(id);
+    }
+    
     public List<Person> findAll() {
     	return personRepository.findAll();
     }

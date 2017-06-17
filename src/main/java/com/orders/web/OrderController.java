@@ -51,6 +51,8 @@ public class OrderController {
     public String add(Model model) {
 		List<Person> persons = personService.findAll();
 		//model.addAttribute("orderForm", new Order());
+		List<Order> orders = orderService.getLastOrders(0,10);
+	    model.addAttribute("orders", orders);
 		model.addAttribute("persons", persons);
         return "order/add";
     }
@@ -62,12 +64,8 @@ public class OrderController {
 	    orderForm.setPerson(person);
 	    orderService.save(orderForm);
 	    
-	    //last saved orders
-	    Pageable limit = new PageRequest(0,10);
-	    //limit.getSort().and(new Sort(Sort.Direction.DESC, "id")); npe! here 
-	    PageImpl<Order> orders = orderService.findAll(limit);
-	    List<Order> ordersList = orders.getContent();
-	    model.addAttribute("orders", ordersList);
+	    List<Order> orders = orderService.getLastOrders(0,10);
+	    model.addAttribute("orders", orders);
 	    
         return "order/table";
     }

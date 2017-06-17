@@ -1,5 +1,6 @@
 ﻿<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <table border="1">
 	<tr>
@@ -28,7 +29,9 @@
 		<tr>
 			<td><c:out value="${order.person.username}" /></td>
 			<td>${order.shopName}</td>
-			<td>${order.dateCreate}</td>
+			<td>
+				<fmt:formatDate value="${order.dateCreate}" pattern="dd.MM.yy" />
+			</td>
 			<td>${order.productName}</td>
 			<td>${order.colour}</td>
 			<td>${order.sizeName}</td>

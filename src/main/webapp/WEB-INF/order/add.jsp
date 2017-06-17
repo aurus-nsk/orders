@@ -15,6 +15,8 @@
 </head>
 
 <body>
+<!-- main wrapper -->
+<div id="wrapper" class="wrapper">
 	<jsp:include page="/WEB-INF/navigation.jsp"/>
 	
     <div class="container-fluid">
@@ -78,13 +80,13 @@
 	                <input id="deliveryUsaDollars_id" type="text" path="deliveryUsaDollars" class="form-control inputfield"></input>
 				</td>
 				<td>    
-	                <input id="totalDollars_id" type="text" path="totalDollars" class="form-control inputfield"></input>
+	                <input disabled="disabled" id="totalDollars_id" type="text" path="totalDollars" class="form-control inputfield"></input>
 				</td>
 				<td>    
 	                <input id="currency_id" type="text" path="currency" class="form-control inputfield"></input>
 				</td>
 				<td>    
-	                <input id="totalRubles_id" type="text" path="totalRubles" class="form-control inputfield"></input>
+	                <input disabled="disabled" id="totalRubles_id" type="text" path="totalRubles" class="form-control inputfield"></input>
 				</td>
 				<td>    
 	                <input id="weight_id" type="text" path="weight" class="form-control inputfield"></input>
@@ -93,33 +95,50 @@
 	                <input id="priceOfKgDollars_id" type="text" path="priceOfKgDollars" class="form-control inputfield"></input>
 				</td>
 				<td>    
-	                <input id="deliveryRussiaDollars_id" type="text" path="deliveryRussiaDollars" class="form-control inputfield"></input>
+	                <input disabled="disabled" id="deliveryRussiaDollars_id" type="text" path="deliveryRussiaDollars" class="form-control inputfield"></input>
 				</td>
 				<td>    
 	                <input id="currencyDelivery_id" type="text" path="currencyDelivery" class="form-control inputfield"></input>
 				</td>
 				<td>    
-	                <input id="deliveryRussiaRubles_id" type="text" path="deliveryRussiaRubles" class="form-control inputfield"></input>
+	                <input disabled="disabled" id="deliveryRussiaRubles_id" type="text" path="deliveryRussiaRubles" class="form-control inputfield"></input>
 				</td>
 				<td>    
-	                <input id="totalSumRubles_id" type="text" path="totalSumRubles" class="form-control inputfield"></input>
+	                <input disabled="disabled" id="totalSumRubles_id" type="text" path="totalSumRubles" class="form-control inputfield"></input>
 				</td>
 			</tr>
 			<div class="text-right">
-				<button type="submit" class="btn btn-outline-primary">Добавить</button>
+				<button type="submit" class="btn btn-default-outline">Добавить</button>
 			</div>
 			</form>
 		</table>
-		
-		<div id="table"></div>
 	</div>
-    
+	
+	<br />
+	
+	<div class="container-fluid">
+		<div id="table">
+			Последние добавленные заказы:
+			<jsp:include page="/WEB-INF/order/table.jsp" />
+		</div>
+	</div>
+</div>
+<!-- main wrapper -->
+
+<!-- footer wrapper -->
 	<jsp:include page="/WEB-INF/footer.jsp"/>
 	
 	<SCRIPT type="text/javascript">
     	loadFields();
+    	
+    	$(function() {
+    		$("#dateCreate_id").datepicker({
+		        dateFormat: "dd.mm.yy"
+			});
+    	});
 
     	$( document ).ready(function() {
+        	
     		$("#order_add_form").submit(function(event) {
     			// Prevent the form from submitting via the browser.
     			event.preventDefault();
@@ -195,6 +214,7 @@
     			    success: function(data) {
     			        //console.log(data);
     			    	$('#table').html(data);
+    			    	document.getElementById("order_add_form").reset();
     			    },
     			    error: function (xhr, ajaxOptions, thrownError) {
     			        //console.log(xhr.status + ": " + thrownError);
@@ -204,5 +224,6 @@
     		}
     	});
     </SCRIPT>
+<!-- footer wrapper -->
 </body>
 </html>

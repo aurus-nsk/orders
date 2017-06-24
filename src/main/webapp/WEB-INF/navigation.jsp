@@ -8,7 +8,8 @@
             <li class="nav-item"><a class="nav-link active" href="/profile">Личная информация</a></li>
             
             <security:authorize access="hasRole('ROLE_ADMIN')">
-				<li class="nav-item"><a class="nav-link active" active href="/orders/add">Новый заказ</a></li>
+				<li class="nav-item"><a class="nav-link active" href="/orders/add">Новый заказ</a></li>
+				<li class="nav-item"><a class="nav-link active" href="/settings">Настройки</a></li>
 			</security:authorize>
 			
 			<security:authorize access="isAnonymous()">

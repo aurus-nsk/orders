@@ -13,6 +13,8 @@
 	<link href="${contextPath}/resources/css/common.css" rel="stylesheet">
 </head>
 <body>
+<!-- main wrapper -->
+<div id="wrapper" class="wrapper">
 <div class="container">
 
     <form method="POST" action="${contextPath}/login" class="form-signin">
@@ -33,7 +35,7 @@
     </form>
 
 </div>
-
+</div>
 <jsp:include page="footer.jsp"/>
 </body>
 </html>

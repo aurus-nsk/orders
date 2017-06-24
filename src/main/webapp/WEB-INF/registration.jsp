@@ -14,6 +14,8 @@
 </head>
 
 <body>
+<!-- main wrapper -->
+<div id="wrapper" class="wrapper">
 <div class="container">
 
     <form:form method="POST" modelAttribute="personForm" class="form-signin">
@@ -64,7 +66,8 @@
 
 </div>
 <!-- /container -->
-<script src="${contextPath}/resources/js/jquery/1.11.2/jquery.min.js"></script>
-<script src="${contextPath}/resources/js/bootstrap.min.js"></script>
+</div>
+
+<jsp:include page="footer.jsp"/>
 </body>
 </html>

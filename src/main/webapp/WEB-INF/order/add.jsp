@@ -126,7 +126,7 @@
 <!-- main wrapper -->
 
 <!-- footer wrapper -->
-	<jsp:include page="/WEB-INF/footer.jsp"/>
+<jsp:include page="/WEB-INF/footer.jsp"/>
 	
 	<SCRIPT type="text/javascript">
     	loadFields();

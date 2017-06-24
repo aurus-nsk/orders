@@ -5,9 +5,6 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageImpl;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -35,7 +32,7 @@ public class OrderController {
     private PersonService personService;
 	@Autowired
     private OrderService orderService;
-    
+	
 	@RequestMapping(value = "/orders", method = RequestMethod.GET)
     public String orders(Model model) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();

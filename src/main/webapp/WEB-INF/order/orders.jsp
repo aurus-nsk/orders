@@ -14,13 +14,15 @@
 </head>
 
 <body>
-
+<!-- main wrapper -->
+<div id="wrapper" class="wrapper">
 	<jsp:include page="/WEB-INF/navigation.jsp"/>
 	
     <div class="container-fluid">
 		<jsp:include page="/WEB-INF/order/table.jsp"/>
 	</div>
-	
-	<jsp:include page="/WEB-INF/footer.jsp"/>
+</div>
+
+<jsp:include page="/WEB-INF/footer.jsp"/>
 </body>
 </html>

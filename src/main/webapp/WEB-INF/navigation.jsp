@@ -3,9 +3,9 @@
 	<a class="navbar-brand" href="#">Krasota</a>
     <div class="container">
         <ul class="nav navbar-nav flex-row float-right">
-            <li class="nav-item"><a class="nav-link active" href="/index">Новости</a></li>
+            <li class="nav-item"><a class="nav-link active" href="/">Новости</a></li>
             <li class="nav-item"><a class="nav-link active" href="/orders">Заказы</a></li>
-            <li class="nav-item"><a class="nav-link active" href="/info">Личная информация</a></li>
+            <li class="nav-item"><a class="nav-link active" href="/profile">Личная информация</a></li>
             
             <security:authorize access="hasRole('ROLE_ADMIN')">
 				<li class="nav-item"><a class="nav-link active" active href="/orders/add">Новый заказ</a></li>

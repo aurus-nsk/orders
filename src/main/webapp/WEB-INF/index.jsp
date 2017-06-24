@@ -8,16 +8,18 @@
 <html>
      
 <head>
-	<jsp:include page="header.jsp">
+	<jsp:include page="/WEB-INF/header.jsp">
     	<jsp:param name="title" value="Красота"/>
 	</jsp:include>
 </head>
 
 <body>
-	<jsp:include page="navigation.jsp"/>
+<!-- main wrapper -->
+<div id="wrapper" class="wrapper">
+	<jsp:include page="/WEB-INF/navigation.jsp"/>
 	
     Запущена тестовая версия.  
-	
-	<jsp:include page="footer.jsp"/>
+</div>
+	<jsp:include page="/WEB-INF/footer.jsp"/>
 </body>
 </html>

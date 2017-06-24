@@ -14,6 +14,8 @@
 </head>
 
 <body>
+<!-- main wrapper -->
+<div id="wrapper" class="wrapper">
 	<jsp:include page="/WEB-INF/navigation.jsp"/>
 	
     <div class="container-fluid">
@@ -151,8 +153,9 @@
 		<form:errors path="person"></form:errors>
 		<form:errors path="shopName"></form:errors>
 	</div>
+</div>
     
-	<jsp:include page="/WEB-INF/footer.jsp"/>
+<jsp:include page="/WEB-INF/footer.jsp"/>
 	
 	<SCRIPT type="text/javascript">
     	loadFields();

@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -25,13 +27,14 @@ public class SettingsController {
     public String get(Model model) {
 		List<Settings> settings = settingsService.findAll();
 	    model.addAttribute("settings", settings);
-        return "settings/all";
+        return "settings/settings";
     }
 	
 	@RequestMapping(value = "/settings", method = RequestMethod.POST)
-    public String add(Model model) {
-		List<Settings> settings = settingsService.findAll();
-	    model.addAttribute("settings", settings);
-        return "settings/all";
+    public String add(@RequestBody final Settings settings, BindingResult bindingResult, Model model) {
+		settingsService.save(settings);
+		List<Settings> list = settingsService.findAll();
+	    model.addAttribute("settings", list);
+        return "settings/table";
     }
 }

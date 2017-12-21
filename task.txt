@@ -1,6 +1,6 @@
-﻿1. WAR package and Deploy it on rhcloud
+﻿1. Settings for "currency"
 
-1. DatePicker at the orders/add form with time
-3. Settings for "currency"
-6. Предустмотреть проставку Оплаты
-7. Change ',' to '.' at the orders/add form
+2. WAR package and Deploy it on rhcloud
+3. DatePicker at the orders/add form with time
+4. Предустмотреть проставку Оплаты
+5. Change ',' to '.' at the orders/add form
